@@ -6,7 +6,7 @@ fun main(){
 
 // Solve a riddle
 fun challengeOne(){
-    val correctAnswer = listOf("One", "Two")
+    val correctAnswer = setOf("One", "Two")
 
     println("For you're first challenge you will have to solve this riddle!")
     Thread.sleep(1000)
@@ -15,7 +15,7 @@ fun challengeOne(){
     determineWinner(userAnswer, correctAnswer )
 }
 
-fun determineWinner(userAnswer: String?, correctAnswer: List<String>){
+fun determineWinner(userAnswer: String?, correctAnswer: Set<String>){
     if (correctAnswer.contains(userAnswer)) {
         println("You won")
         Thread.sleep(1000)
@@ -25,33 +25,27 @@ fun determineWinner(userAnswer: String?, correctAnswer: List<String>){
     }
 }
 
-// Solve a riddle
+// minigame
 fun challengeTwo(){
-    //val low = arrayOf(1, 2, 3)
-    //val high = arrayOf(4, 5, 6)
+    val diceResult = (1..6).random()
+    val userAnswer = readLine()
 
+    if (userAnswer == "low" && (1..3).contains(diceResult)) {
+        // win
+    } else if (userAnswer == "high" && (4..6).contains(diceResult)){
+        // win
+    } else {
+        // game over
+    }
 
     println("For you're second challenge you will have to predict a dice roll!")
     Thread.sleep(1000)
     println("Pick between 'low' and 'high'")
-    val userAnswer = readLine()!!
-    rollDice()
+
     //if (readLine() == null) {
     //    Thread.sleep(3000)
     //    println("So... what is you're prediction?")
     //}
-
-}
-
-fun rollDice (){
-    val numbers = arrayOf(1, 2, 3, 4, 5, 6)
-    val randomNumber = numbers.random()
-    println(randomNumber)
-    if (randomNumber < 4) {
-        println("low")
-    } else {
-        println("low")
-    }
 }
 
 fun gameOver(){
